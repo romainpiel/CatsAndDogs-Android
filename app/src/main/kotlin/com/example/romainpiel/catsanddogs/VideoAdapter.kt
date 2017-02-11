@@ -5,16 +5,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 
 class VideoAdapter : RecyclerView.Adapter<VideoViewHolder>() {
-    val items = listOf(Video("Ágnes Vásárhelyi"),
-            Video("Michał Bendowski"),
-            Video("Jorge D. Ortiz-Fuentes"),
-            Video("Felix Krause"),
-            Video("Scott Alexander-Bown"),
-            Video("Eugenio Marletti"),
-            Video("Natasha Murashev"),
-            Video("Jasson Schrock"),
-            Video("Ash Furrow"),
-            Video("Adrian Catalan"))
+    var items = emptyList<Video>()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): VideoViewHolder {
         val view = LayoutInflater.from(parent?.context).inflate(R.layout.item_video, parent, false)
