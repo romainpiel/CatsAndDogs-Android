@@ -5,6 +5,6 @@ import io.reactivex.Observable
 import retrofit2.http.GET
 
 interface EventService {
-    @GET("/michael-r-may/CatsAndDogsiOS/master/static-json/speakers.json")
-    fun getEvent(): Observable<ApiEventWrapper>
+    @GET("/schedule.json")
+    fun getSchedule(): Observable<ApiEventWrapper>
 }

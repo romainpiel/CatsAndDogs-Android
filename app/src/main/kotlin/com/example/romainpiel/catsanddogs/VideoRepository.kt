@@ -1,8 +1,6 @@
 package com.example.romainpiel.catsanddogs
 
 import com.example.romainpiel.catsanddogs.api.EventService
-import com.example.romainpiel.catsanddogs.api.model.ApiEvent
-import com.example.romainpiel.catsanddogs.api.model.ApiEventWrapper
 import io.reactivex.Single
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -13,7 +11,7 @@ class VideoRepository {
 
     init {
         val retrofit = Retrofit.Builder()
-                .baseUrl("https://raw.githubusercontent.com")
+                .baseUrl("https://catsanddogs-kotlin-server.herokuapp.com")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build()
@@ -22,9 +20,8 @@ class VideoRepository {
     }
 
     fun videos(): Single<List<Video>> {
-        return eventService.getEvent()
-                .map(ApiEventWrapper::event)
-                .map(ApiEvent::speakers)
+        return eventService.getSchedule()
+                .map { it.event.speakers }
                 .flatMapIterable { it }
                 .map { Video(it.name, it.company) }
                 .toList()
