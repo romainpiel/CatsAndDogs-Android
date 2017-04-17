@@ -1,4 +1,4 @@
-package com.example.romainpiel.catsanddogs
+package com.romainpiel.catsanddogs
 
 import io.reactivex.Single
 import retrofit2.Retrofit

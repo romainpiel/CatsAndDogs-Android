@@ -1,4 +1,4 @@
-package com.example.romainpiel.catsanddogs
+package com.romainpiel.catsanddogs
 
 import android.support.v7.widget.RecyclerView
 import android.view.View

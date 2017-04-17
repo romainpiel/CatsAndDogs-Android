@@ -1,4 +1,4 @@
-package com.example.romainpiel.catsanddogs
+package com.romainpiel.catsanddogs
 
 import io.reactivex.Observable
 import retrofit2.http.GET
