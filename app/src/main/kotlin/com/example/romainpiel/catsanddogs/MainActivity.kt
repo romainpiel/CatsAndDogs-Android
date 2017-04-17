@@ -16,15 +16,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val adapter = VideoAdapter()
+        val adapter = CardAdapter()
         val recyclerView = findViewById(R.id.recycler_view_main) as? RecyclerView
         recyclerView?.adapter = adapter
         recyclerView?.layoutManager = LinearLayoutManager(this)
 
-        disposable = VideoRepository().videos()
+        disposable = ScheduleRepository().videos()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ adapter.items = it }, { Log.e("MainActivity", "Could not load videos", it) })
+                .subscribe({ adapter.items = it }, { Log.e("MainActivity", "Could not load schedule", it) })
     }
 
     override fun onDestroy() {
