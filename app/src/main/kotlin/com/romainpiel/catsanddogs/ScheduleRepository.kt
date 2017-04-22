@@ -23,7 +23,7 @@ class ScheduleRepository {
         service = retrofit.create(ScheduleService::class.java)
     }
 
-    fun schedule(from: String?): Single<List<Card>> {
+    fun schedule(from: String?): Single<List<Item>> {
         return service.getSchedule(from)
                 .flatMapIterable { it }
                 .toList()

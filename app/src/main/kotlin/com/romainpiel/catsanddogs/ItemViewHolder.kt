@@ -4,7 +4,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.TextView
 
-class CardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val titleTextView: TextView
     val subtitleTextView: TextView
     val dateTextView: TextView
@@ -17,7 +17,7 @@ class CardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         timeTextView = itemView.findViewById(R.id.time) as TextView
     }
 
-    fun bind(item: Card) {
+    fun bind(item: Item) {
         titleTextView.text = item.title
         subtitleTextView.text = item.subtitle
         dateTextView.text = item.date

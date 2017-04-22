@@ -17,7 +17,7 @@ import org.threeten.bp.format.DateTimeFormatter
 
 class MainActivity : AppCompatActivity() {
     private lateinit var disposable: Disposable
-    private lateinit var adapter: CardAdapter
+    private lateinit var adapter: ItemAdapter
     private var dateMenuItem: MenuItem? = null
     private var timeMenuItem: MenuItem? = null
     private var dateFilter: LocalDate? = null
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        adapter = CardAdapter()
+        adapter = ItemAdapter()
         val recyclerView = findViewById(R.id.recycler_view_main) as? RecyclerView
         recyclerView?.adapter = adapter
         recyclerView?.layoutManager = LinearLayoutManager(this)
