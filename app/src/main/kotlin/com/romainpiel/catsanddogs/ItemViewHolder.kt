@@ -3,19 +3,13 @@ package com.romainpiel.catsanddogs
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.TextView
+import butterknife.bindView
 
 class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    val titleTextView: TextView
-    val subtitleTextView: TextView
-    val dateTextView: TextView
-    val timeTextView: TextView
-
-    init {
-        titleTextView = itemView.findViewById(R.id.title) as TextView
-        subtitleTextView = itemView.findViewById(R.id.subtitle) as TextView
-        dateTextView = itemView.findViewById(R.id.date) as TextView
-        timeTextView = itemView.findViewById(R.id.time) as TextView
-    }
+    val titleTextView: TextView by bindView(R.id.title)
+    val subtitleTextView: TextView by bindView(R.id.subtitle)
+    val dateTextView: TextView by bindView(R.id.date)
+    val timeTextView: TextView by bindView(R.id.time)
 
     fun bind(item: Item) {
         titleTextView.text = item.title
