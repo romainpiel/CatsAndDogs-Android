@@ -6,9 +6,11 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.*
 
 class ScheduleRepository {
     private val service: ScheduleService
+    private val language = Locale.getDefault().language;
 
     init {
         val retrofit = Retrofit.Builder()
@@ -23,9 +25,7 @@ class ScheduleRepository {
         service = retrofit.create(ScheduleService::class.java)
     }
 
-    fun schedule(from: String?): Single<List<Item>> {
-        return service.getSchedule(from)
-                .flatMapIterable { it }
-                .toList()
-    }
+    fun schedule(from: String?): Single<MutableList<Item>> = service.getSchedule(language, from)
+            .flatMapIterable { it }
+            .toList()
 }
