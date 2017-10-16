@@ -3,7 +3,7 @@ package com.romainpiel.catsanddogs
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.TextView
-import butterknife.bindView
+import kotterknife.bindView
 
 class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val titleTextView: TextView by bindView(R.id.title)
