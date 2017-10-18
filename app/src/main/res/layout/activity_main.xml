@@ -5,5 +5,7 @@
     android:id="@+id/recycler_view_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.romainpiel.catsanddogs.MainActivity"/>
+    tools:context="com.romainpiel.catsanddogs.MainActivity"
+    tools:listitem="@layout/item"
+    tools:menu="main"/>
 
